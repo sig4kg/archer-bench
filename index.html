@@ -1,0 +1,331 @@
+<!DOCTYPE html><!--Adapted from https://github.com/rajpurkar/SQuAD-explorer/tree/gh-pages authored by Pranav Rajpurkar-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Archer: A Human-Labeled Text-to-SQL Dataset with Arithmetic, Commonsense and Hypothetical Reasoning</title>
+    <meta name="description"
+        content="Archer is a challenging bilingual text-to-SQL dataset specific to complex reasoning,
+        including arithmetic, commonsense and hypothetical reasoning. It contains 1,042 English
+        questions and 1,042 Chinese questions, along with 521 unique SQL queries, covering 20 English databases across 20 domains.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta property="og:image" content="/logo.png">
+    <link rel="image_src" type="image/png" href="archer_logo.png">
+    <link rel="shortcut icon" href="archer_logo.png" type="image/x-icon">
+    <link rel="icon" href="archer_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/layout.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" id="topNavbar" role="navigation">
+        <div class="container clearfix" id="navContainer">
+            <div class="rightNav">
+                <div class="collapseDiv"><button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
+                        data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span
+                            class="glyphicon glyphicon-menu-hamburger"></span></button></div>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Submission Guidance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="leftNav">
+                <div class="brandDiv"><a class="navbar-brand" href="">Archer</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="cover" id="topCover">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id="appTitle"><img src="archer_logo.png" alt="Archer Logo" style="width: 150px; height: auto; padding-right: 20px; padding-bottom: 20px;">Archer</h1>
+                    <h2 id="appSubtitle">A Human-Labeled Text-to-SQL Dataset with Arithmetic, Commonsense and Hypothetical Reasoning</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cover" id="contentCover">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="infoCard">
+                        <div class="infoBody">
+                            <div class="infoHeadline">
+                                <h2>About Archer</h2>
+                            </div>
+                            <p> Archer is a challenging bilingual text-to-SQL dataset specific to complex reasoning,
+                                including arithmetic, commonsense and hypothetical reasoning. It contains 1,042 English
+                                questions and 1,042 Chinese questions, along with 521 unique SQL queries, covering 20 English databases across 20 domains. 
+                                This leaderboard provides a different data splitting from the original paper for better evaluation, where we further choose 8 databases from train set to be test data. 
+                                Thus now the train set contains 8 databases, the dev set contains 2 databases and the blind test set contains 10 databases.
+                            </p>
+                                <a
+                                class="btn actionBtn" href="https://aclanthology.org/2024.eacl-long.6/">Paper (Zheng et al. 24)</a>
+                                <ul class="list-unstyled">
+                                <li><a class="btn actionBtn inverseBtn"
+                                    href="dataset/database.zip"
+                                    download>Database</a></li>
+                                <li><a class="btn actionBtn inverseBtn"
+                                    href="dataset/en_data.zip"
+                                    download>en dataset (train and dev)</a></li>
+                                <li><a class="btn actionBtn inverseBtn"
+                                    href="dataset/zh_data.zip"
+                                    download>zh dataset (train and dev)</a></li>
+                                </ul>
+                            <div class="infoHeadline">
+                                <h2>Data Examples</h2>
+                            </div>
+                            <p><strong><em>Arithmetic Reasoning Example</em></strong></p>
+                            <p>How much higher is the maximum power of a BMW car than
+                                the maximum power of a Fiat car?</p>
+                            <p>宝⻢汽⻋的最⾼功率⽐⻜雅特汽⻋的最⾼功率⾼多少？</p>
+                            <p style="font-family: 'Courier New', monospace;">
+                            SELECT MAX(horsepower)<span style="background-color: lightsteelblue;"> - </span>(SELECT MAX (horsepower) 
+                            FROM cars_data A JOIN car_names B ON A.id=B.makeid
+                            WHERE B.model="fiat") AS diff FROM cars_data A JOIN 
+                            car_names B ON A.id=B.makeid WHERE B.model="bmw"
+                            </p>
+                            <hr>
+                            <p><strong><em>Commonsense Reasoning Example</em></strong></p>
+                            <p>Which 4-cylinder car needs the most fuel to drive 300 miles?
+                                List how many gallons it needs, and its make and model.</p>
+                            <p>开300英⾥耗油最多的四缸⻋的品牌和型号分别是什么，它需要多少加仑的油？</p>
+                            <p><strong>Commonsense Knowledge:</strong> Fuel used is calculated by divding
+                                distance driven by fuel consumption.</p>
+                            <p style="font-family: 'Courier New', monospace;">
+                            SELECT B. Make, B.Model, <span style="background-color: lightsteelblue;">1.0 * 300 / mpg AS n_gallon</span>
+                            FROM cars_data A JOIN car_names B ON A.Id=B.MakeId
+                            WHERE cylinders="4" ORDER BY mpg ASC LIMIT 1
+                            </p>
+                            <hr>
+                            <p><strong><em>Hypothetical Reasoning Example</em></strong></p>
+                            <p>If all cars produced by the Daimler Benz company have 4-
+                                cylinders, then in all 4-cylinder cars, which one needs the most
+                                fuel to drive 300 miles? Please list how many gallons it needs,
+                                along with its make and model.</p>
+                            <p>假如⽣产⾃奔驰公司的⻋都是四缸，开300英⾥耗油最多的
+                                四缸⻋的品牌和型号分别是什么，它需要多少加仑的油</p>
+                            <p style="font-family: 'Courier New', monospace;">
+                                SELECT B.Make, B.Model, 1.0 * 300 / mpg AS n_gallon
+                                FROM cars_data A JOIN car_names B ON A.id=B.makeid
+                                JOIN model_list C ON B.model=C.model JOIN car_makers
+                                D on C.maker=D.id WHERE <span style="background-color: lightsteelblue;">D.fullname="Daimler Benz" or 
+                                A.cylinders="4”</span> ORDER BY mpg ASC LIMIT 1
+                                </p>
+                            <div class="infoHeadline">
+                                <h2>Submission</h2>
+                            </div>
+                            <p>For submission, please follow the guidance <a href="">here</a>.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="infoCard">
+                        <div class="infoBody">
+                            <div class="infoHeadline">
+                                <h2>Leaderboard</h2>
+                            </div>
+                            The leaderboard of Archer is shown as follows. The evaluation metric is the EXecution accuracy (EX) of predicted SQL. The leaderboard is based on EX results on the blind test set.
+                            
+                            <div class="infoHeadline">
+                                <h2>English</h2>
+                            </div>
+                            <table class="table performanceTable">
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Model</th>
+                                    <th>Size</th>
+                                    <th>Dev</th>
+                                    <th>Test</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>1</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>GPT-3.5 + CT-3</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>UNK</td>
+                                    <td>10.57</td>
+                                    <td>15.84</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>GPT-3.5 + CT-3 + COT</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>UNK</td>
+                                    <td>13.46</td>
+                                    <td>15.27</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>3</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>GPT-3.5 + API Doc</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>UNK</td>
+                                    <td>14.42</td>
+                                    <td>11.83</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>4</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>T5-3b</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>3B</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <p>4</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>T5-large</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>0.8B</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <p>4</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>T5-base</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>0.2B</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+
+                            <div class="infoHeadline">
+                                <h2>Chinese</h2>
+                            </div>
+                            <table class="table performanceTable">
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Model</th>
+                                    <th>Size</th>
+                                    <th>Dev</th>
+                                    <th>Test</th>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>1</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>GPT-3.5 + CT-3 + COT</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>UNK</td>
+                                    <td>12.50</td>
+                                    <td>15.49</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>2</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>GPT-3.5 + CT-3</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>UNK</td>
+                                    <td>10.58</td>
+                                    <td>12.21</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>3</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>GPT-3.5 + API Doc</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>UNK</td>
+                                    <td>10.58</td>
+                                    <td>10.31</td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <p>4</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>mT5-xl</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>3.7B</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <p>4</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>mT5-large</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>1.2B</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <p>4</p><span class="date label label-default">Mar 15, 2024</span>
+                                    </td>
+                                    <td style="word-break:break-word;">
+                                        <p>mT5-base</p>
+                                        <p class="institution">baseline</p>
+                                    </td>
+                                    <td>0.6B</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-static-bottom footer">
+        <div class="container clearfix">
+            <div class="rightNav">
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="">Archer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

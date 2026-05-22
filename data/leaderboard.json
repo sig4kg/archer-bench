@@ -1,0 +1,310 @@
+{
+  "english": [
+    {
+      "model": "OraPlan-SQL (gpt-5)",
+      "institution": "Oracle",
+      "size": "UNK",
+      "dev": 72.12,
+      "test": 54.96,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "gpt-4o",
+      "institution": "Harbin Institute of Technology",
+      "size": "UNK",
+      "dev": 41.34,
+      "test": 48.66,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "claude4-sonnet + gpt4o",
+      "institution": "Guangdong University of Technology",
+      "size": "UNK",
+      "dev": 35.12,
+      "test": 45.61,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "DeepSeek-V3.1-Think",
+      "institution": "JD Five Star Appliance Group Co., Ltd.",
+      "size": "671B",
+      "dev": 47.11,
+      "test": 43.89,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "qwen3-235b-a22b + kamfu knowledge model",
+      "institution": "GUANGDONG KAMFU TECHNOLOGY CO.,LTD",
+      "size": "235B",
+      "dev": 43.31,
+      "test": 43.32,
+      "date": "Jul 16, 2025"
+    },
+    {
+      "model": "GPT-4o + zpoint-embedding",
+      "institution": "KnowDee",
+      "size": "UNK",
+      "dev": 22.12,
+      "test": 42.18,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o + Deepseek-Coder-33b",
+      "institution": "Harbin Institute of Technology",
+      "size": "UNK",
+      "dev": 34.62,
+      "test": 39.12,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o",
+      "institution": "HITSZ-GDDW Tech",
+      "size": "UNK",
+      "dev": 31.73,
+      "test": 39.12,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o + deepseek",
+      "institution": "IDMG (Beijing University of Posts and Telecommunications)",
+      "size": "UNK",
+      "dev": 31.73,
+      "test": 31.87,
+      "date": "Sep 5, 2024"
+    },
+    {
+      "model": "deepseek-chat",
+      "institution": "JD-5Star",
+      "size": "UNK",
+      "dev": 24.04,
+      "test": 31.11,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o",
+      "institution": "MI&TLab (Harbin Institute of Technology)",
+      "size": "UNK",
+      "dev": 32.69,
+      "test": 30.73,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o + all-MiniLM-L6-v2",
+      "institution": "NUDT",
+      "size": "UNK",
+      "dev": 38.46,
+      "test": 30.73,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o",
+      "institution": "Foshan university",
+      "size": "UNK",
+      "dev": 22.12,
+      "test": 25.62,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-3.5 + CT-3",
+      "institution": "baseline",
+      "size": "UNK",
+      "dev": 10.57,
+      "test": 15.84,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "GPT-3.5 + CT-3 + COT",
+      "institution": "baseline",
+      "size": "UNK",
+      "dev": 13.46,
+      "test": 15.27,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "GPT-3.5 + API Doc",
+      "institution": "baseline",
+      "size": "UNK",
+      "dev": 14.42,
+      "test": 11.83,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "T5-3b",
+      "institution": "baseline",
+      "size": "3B",
+      "dev": 0,
+      "test": 0,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "T5-large",
+      "institution": "baseline",
+      "size": "0.8B",
+      "dev": 0,
+      "test": 0,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "T5-base",
+      "institution": "baseline",
+      "size": "0.2B",
+      "dev": 0,
+      "test": 0,
+      "date": "Mar 15, 2024"
+    }
+  ],
+  "chinese": [
+    {
+      "model": "OraPlan-SQL (gpt-5)",
+      "institution": "Oracle",
+      "size": "UNK",
+      "dev": 79.81,
+      "test": 56.67,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "gpt-4o",
+      "institution": "Harbin Institute of Technology",
+      "size": "UNK",
+      "dev": 31.73,
+      "test": 44.08,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "GPT-4o + zpoint-embedding",
+      "institution": "KnowDee",
+      "size": "UNK",
+      "dev": 25.96,
+      "test": 42.94,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "claude4-sonnet + gpt4o",
+      "institution": "Guangdong University of Technology",
+      "size": "UNK",
+      "dev": 33.27,
+      "test": 41.41,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "GPT-4o + Deepseek-Coder-33b",
+      "institution": "Harbin Institute of Technology",
+      "size": "UNK",
+      "dev": 23.08,
+      "test": 39.89,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "DeepSeek-V3.1-Think",
+      "institution": "JD Five Star Appliance Group Co., Ltd.",
+      "size": "671B",
+      "dev": 46.15,
+      "test": 39.12,
+      "date": "Sep 27, 2025"
+    },
+    {
+      "model": "GPT-4o",
+      "institution": "HITSZ-GDDW Tech",
+      "size": "UNK",
+      "dev": 24.04,
+      "test": 37.79,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "qwen3-235b-a22b + kamfu knowledge model",
+      "institution": "GUANGDONG KAMFU TECHNOLOGY CO.,LTD",
+      "size": "235B",
+      "dev": 38.46,
+      "test": 37.40,
+      "date": "Jul 16, 2025"
+    },
+    {
+      "model": "GPT-4o + deepseek",
+      "institution": "IDMG (Beijing University of Posts and Telecommunications)",
+      "size": "UNK",
+      "dev": 24.04,
+      "test": 29.39,
+      "date": "Sep 5, 2024"
+    },
+    {
+      "model": "GPT-4o",
+      "institution": "MI&TLab (Harbin Institute of Technology)",
+      "size": "UNK",
+      "dev": 24.04,
+      "test": 28.63,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o + all-MiniLM-L6-v2",
+      "institution": "NUDT",
+      "size": "UNK",
+      "dev": 25.96,
+      "test": 27.10,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "deepseek-chat",
+      "institution": "JD-5Star",
+      "size": "UNK",
+      "dev": 23.08,
+      "test": 25.00,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-4o",
+      "institution": "Foshan university",
+      "size": "UNK",
+      "dev": 17.14,
+      "test": 22.90,
+      "date": "Sep 10, 2024"
+    },
+    {
+      "model": "GPT-3.5 + CT-3 + COT",
+      "institution": "baseline",
+      "size": "UNK",
+      "dev": 12.50,
+      "test": 15.49,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "GPT-3.5 + CT-3",
+      "institution": "baseline",
+      "size": "UNK",
+      "dev": 10.58,
+      "test": 12.21,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "GPT-3.5 + API Doc",
+      "institution": "baseline",
+      "size": "UNK",
+      "dev": 10.58,
+      "test": 10.31,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "mT5-xl",
+      "institution": "baseline",
+      "size": "3.7B",
+      "dev": 0,
+      "test": 0,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "mT5-large",
+      "institution": "baseline",
+      "size": "1.2B",
+      "dev": 0,
+      "test": 0,
+      "date": "Mar 15, 2024"
+    },
+    {
+      "model": "mT5-base",
+      "institution": "baseline",
+      "size": "0.6B",
+      "dev": 0,
+      "test": 0,
+      "date": "Mar 15, 2024"
+    }
+  ]
+}

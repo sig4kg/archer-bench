@@ -163,14 +163,6 @@
   ],
   "chinese": [
     {
-      "model": "GenuineKnowledge-NL2SQL (gpt-5.5)",
-      "institution": "Hefei Genuine Knowledge Artificial Intelligence Application Software Co., Ltd. University of Science and Technology of China,China Mobile (Suzhou) Software Technology Co., Ltd.",
-      "size": "UNK",
-      "dev": 67.31,
-      "test": 58.40,
-      "date": "May 8, 2026"
-    },
-    {
       "model": "OraPlan-SQL (gpt-5)",
       "institution": "Oracle",
       "size": "UNK",
@@ -322,5 +314,13 @@
       "test": 0,
       "date": "Mar 15, 2024"
     },
+    {
+      "model": "GenuineKnowledge-NL2SQL",
+      "institution": "Hefei Genuine Knowledge Artificial Intelligence Application Software Co., Ltd., University of Science and Technology of China, China Mobile (Suzhou) Software Technology Co., Ltd.",
+      "size": "UNK",
+      "dev": 67.31,
+      "test": 58.40,
+      "date": "May 22, 2026"
+    }
   ]
 }
